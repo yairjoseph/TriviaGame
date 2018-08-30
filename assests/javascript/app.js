@@ -2,6 +2,8 @@ var correct = 0;
 var inccorect = 0;
 var unAnswered = 0;
 var quizOver = false;
+var time = 5;
+var intervalId;
 
 
 var questions = [{
@@ -11,38 +13,60 @@ var questions = [{
 }, {
     question: "Hi ?",
     answers: ["Shalom ", "Ola! ", "Night "],
-    correctAnswer: 2
+    correctAnswer: 3
+}, {
+    question: "Home!!",
+    answers: ["Today?", "Tomorrow?", "Now?", "How?"],
+    correctAnswer: 1
 }];
 
 function questionMaker() {
     for (let i = 0; i < questions.length; i++) {
-        var newRow = $("<div class='row'>");
+        var newRow = $("<div class='row headColor'>");
         var newColumn = $("<div class='col-md-12'>");
-        // var fields = ("<label>");
-        $("#mainContainer").append(newRow);
+        $(".container").append(newRow);
         (newRow).append(newColumn);
-        // newColumn.html(fields);
         (newColumn).html(questions[i].question);
 
         for (let j = 0; j < questions[i].answers.length; j++) {
             var newRow = $("<div class='row'>");
-            var newColumn = $("<div class='col-md-12'>");
+            var newColumn = $("<div class='col-md-12 answerPreCss'>");
             var newAnswer = questions[i].answers[j];
             var inputs = $("<input type='radio' name='answers'>");
             var label = $("<label>");
-            inputs.attr("id", "answers"+i+j);
-            label.attr("for", "answers"+i+j);
+            inputs.attr("id", "answers" + i + j);
+            label.attr("for", "answers" + i + j);
             label.text(questions[i].answers[j]);
             $(".container").append(newRow);
             (newRow).append(newColumn);
             (newColumn).append(inputs);
             newColumn.append(label);
-            
-            
-            // (newColumn).html(questions[i].answers[j]);
-            
-
         }
     }
 }
 questionMaker()
+
+function count() {
+    time--;
+    $(".timeRemaining").html("Time Remaning: " + time);
+
+    if (time === 0) {
+        $(".container").hide();
+        $(".timeRemaining").hide();
+        clearInterval(intervalId);
+    } console.log(time)
+}
+$(".start").on("click", runQuiz)
+
+function runQuiz() {
+    intervalId = setInterval(count, 1000)
+}
+
+
+
+// $(".container").show(); 
+// function endQuiz() {
+//     if (time === 0) {
+
+//     }
+// }
