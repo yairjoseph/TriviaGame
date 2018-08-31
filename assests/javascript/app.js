@@ -4,8 +4,6 @@ var unAnswered = 0;
 var time = 61;
 var intervalId;
 var form = $("<form>");
-
-
 var questions = [{
     question: "Which year's top 10 grossing video games are available on PS4?",
     answers: ["2011", "2015", "2014", "2010"],
@@ -35,7 +33,6 @@ var questions = [{
     answers: ["Luigi", "Donkey Kong", "Peach", "Yoshi"],
     correctAnswer: 1
 }];
-///change ame for every question
 function QAMaker() {
     for (let i = 0; i < questions.length; i++) {
         var newRow = $("<div class='row headColor'>");
@@ -62,13 +59,11 @@ function QAMaker() {
         }
     }
 }
-
 QAMaker()
 
 function count() {
     time--;
     $("#timeLeft").html(time);
-    
 
     if (time === 0) {
         $("#startContainer").hide();
@@ -81,9 +76,6 @@ function count() {
         answersFunc()
     }
 }
-
-
-
 function runQuiz() {
     intervalId = setInterval(count, 1000)
     $(".start").hide();
@@ -93,12 +85,7 @@ function runQuiz() {
     $(".timeRemaining").show();
     $("#triviaTime").show();
     $("#triviaTime2").hide();
-
-}
-
-$(".start").on("click", runQuiz)
-
-
+}$(".start").on("click", runQuiz)
 
 function submit() {
     $(".submit").hide();
@@ -107,20 +94,18 @@ function submit() {
     $("#container3").show();
     $("#triviaTime").hide();
     answersFunc();
-}
-$(".submit").on("click", submit)
-
-var rightAnswer = [
-    $("input[name='answers0']:checked").val(),
-    $("input[name='answers1']:checked").val(),
-    $("input[name='answers2']:checked").val(),
-    $("input[name='answers3']:checked").val(),
-    $("input[name='answers4']:checked").val(),
-    $("input[name='answers5']:checked").val(),
-    $("input[name='answers6']:checked").val(),
-]
+} $(".submit").on("click", submit)
 
 function answersFunc() {
+    var rightAnswer = [
+        $("input[name='answers0']:checked").val(),
+        $("input[name='answers1']:checked").val(),
+        $("input[name='answers2']:checked").val(),
+        $("input[name='answers3']:checked").val(),
+        $("input[name='answers4']:checked").val(),
+        $("input[name='answers5']:checked").val(),
+        $("input[name='answers6']:checked").val(),
+    ]
     for (let i = 0; i < questions.length; i++) {
 
         if (questions[i].answers.indexOf(rightAnswer[i]) === questions[i].correctAnswer) {
@@ -131,15 +116,13 @@ function answersFunc() {
         }
         else {
             incorrect++;
+        }
     }
-}
     $("#Correct").text(correct);
     $("#Incorrect").text(incorrect);
     $("#UnAnswered").text(unAnswered);
 }
 
-
 function resetQuiz() {
-
-}
-$(".resetBtn").on("click", resetQuiz)
+    window.location.reload();
+}$("#resetBtn").on("click", resetQuiz)
