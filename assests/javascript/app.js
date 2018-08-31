@@ -1,7 +1,6 @@
 var correct = 0;
 var incorrect = 0;
 var unAnswered = 0;
-var quizOver = false;
 var time = 61;
 var intervalId;
 var form = $("<form>");
@@ -69,6 +68,7 @@ QAMaker()
 function count() {
     time--;
     $("#timeLeft").html(time);
+    
 
     if (time === 0) {
         $("#startContainer").hide();
@@ -78,6 +78,7 @@ function count() {
         $("#container3").show();
         $("#triviaTime").hide();
         clearInterval(intervalId);
+        answersFunc()
     }
 }
 
