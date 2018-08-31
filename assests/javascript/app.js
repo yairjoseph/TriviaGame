@@ -82,7 +82,7 @@ function count() {
     }
 }
 
-$(".start").on("click", runQuiz)
+
 
 function runQuiz() {
     intervalId = setInterval(count, 1000)
@@ -96,7 +96,9 @@ function runQuiz() {
 
 }
 
-$(".submit").on("click", submit)
+$(".start").on("click", runQuiz)
+
+
 
 function submit() {
     $(".submit").hide();
@@ -106,6 +108,7 @@ function submit() {
     $("#triviaTime").hide();
     answersFunc();
 }
+$(".submit").on("click", submit)
 
 var rightAnswer = [
     $("input[name='answers0']:checked").val(),
@@ -128,9 +131,15 @@ function answersFunc() {
         }
         else {
             incorrect++;
-        }
     }
+}
     $("#Correct").text(correct);
     $("#Incorrect").text(incorrect);
     $("#UnAnswered").text(unAnswered);
 }
+
+
+function resetQuiz() {
+
+}
+$(".resetBtn").on("click", resetQuiz)

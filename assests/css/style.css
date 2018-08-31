@@ -86,3 +86,10 @@ label {
 .timeRemaining {
     font-size: 70px;
 }
+
+#resetBtn {
+    font-size: 50px;
+    width: 300px;
+    text-align: center;
+    border-radius: 20px;
+}
