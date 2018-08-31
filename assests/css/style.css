@@ -1,7 +1,80 @@
+* {
+    text-align: center;
+}
+body {
+    
+    background: url("http://backgroundcheckall.com/wp-content/uploads/2017/12/trivia-background-6.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#mainContainer{
+    background: url("http://hintergrundbild.org/wallpaper/full/2/f/f/39881-hintergrundbilder-fuers-pc-hd-1920x1080-phone.jpg")no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .answerPreCss {
-    color: red;
+    color: white;
 }
 
 .headColor {
-    color:green;
+    color:white;
 }
+
+.hiddenSubmit, #mainContainer, .timeRemaining, #triviaTime, #container3{
+    display: none;
+    
+ }
+#mainContainer {
+    border-radius: 20px;
+}
+ h1, h4 {
+     text-align:center;
+     color: white;
+ }
+
+ h5 {
+     font-size: 150px;
+     text-align: center;
+ }
+ .start, .submit{
+     font-size: 70px;
+     width: 300px;
+     text-align: center;
+     border-radius: 20px;
+ }
+
+ #container3 {
+    font-size: 70px; 
+     text-align:center;
+     background-color:rgb(255,250,205,0.8);
+     color:blueviolet;
+     height: 700px;
+     width: 800px;
+     border-radius: 50px;
+     margin-top: 100px;
+     padding: 80px;
+
+ }
+
+ #imgId {
+     width: 300px;
+     height: 200px;
+ }
+
+.col-md-12 {
+    font-size: 35px;
+}
+
+label {
+    font-size: 30px;
+}
+
+.submit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
